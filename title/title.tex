@@ -1,0 +1,25 @@
+% Title-page layout using the document's default font.
+\newcommand{\TitleAuthor}[2]{%
+  {\normalsize\bfseries #1\par}%
+  \vspace{0.3\baselineskip}%
+  {\normalsize\itshape #2\par}%
+  \vspace{1.2\baselineskip}%
+}
+
+\begin{titlepage}
+  \thispagestyle{empty}
+  \raggedright
+  \setlength{\parindent}{0pt}
+
+  \vspace*{0.03\textheight}
+
+  {\fontsize{24}{29}\selectfont\bfseries\itshape \BookTitle\par}
+  \vspace{0.5\baselineskip}
+  {\large \BookSubtitle\par}
+
+  \vspace{1.8cm}
+  \BookAuthors
+  \vfill
+  {\small \BookDate\par}
+  \vspace*{0.05\textheight}
+\end{titlepage}

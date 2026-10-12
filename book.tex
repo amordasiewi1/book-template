@@ -1,0 +1,26 @@
+\documentclass[10pt,letterpaper,oneside]{book}
+
+\usepackage[T1]{fontenc}
+\input{layout/margins}
+\usepackage[noframe]{showframe}
+\usepackage[hidelinks]{hyperref}
+
+% Edit the book-specific details here; reuse the title-page layout unchanged.
+\input{title/metadata}
+\input{layout/headers}
+
+\begin{document}
+
+\frontmatter
+\input{title/title}
+
+
+\input{contents/contents}
+
+\mainmatter
+\input{parts/part-01/part}
+
+\backmatter
+% bibliography
+
+\end{document}

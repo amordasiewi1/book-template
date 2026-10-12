@@ -1,0 +1,48 @@
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+
+\setlength{\headheight}{30pt}
+\addtolength{\topmargin}{-18pt}
+
+\newcommand{\BookPageStyle}{%
+  \fancyhf{}%
+  \fancyhead[L]{\parbox[t]{0.48\textwidth}{\raggedright\small\nouppercase{\leftmark}}}%
+  \fancyhead[R]{\parbox[t]{0.48\textwidth}{\raggedleft\small\nouppercase{\rightmark}}}%
+  \fancyfoot[C]{%
+    \begin{minipage}[t]{\textwidth}
+      \hrule height 0.4pt
+      \vspace{5pt}%
+      \noindent
+      \parbox[t]{0.43\textwidth}{\raggedright\footnotesize\itshape\BookTitle}%
+      \parbox[t]{0.14\textwidth}{\centering\thepage}%
+      \parbox[t]{0.43\textwidth}{\mbox{}}\par
+    \end{minipage}%
+  }%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{fancy}
+\BookPageStyle
+\fancypagestyle{plain}{\BookPageStyle}
+
+\makeatletter
+\newcommand{\BookCurrentPart}{}
+\renewcommand{\chaptermark}[1]{%
+  \if@mainmatter
+    \markboth{\BookCurrentPart}{\chaptername\ \thechapter: #1}%
+  \else
+    \markright{#1}%
+  \fi
+}
+\renewcommand{\sectionmark}[1]{}
+\renewcommand{\@mkboth}[2]{\markright{#2}}
+
+\let\BookOriginalPart\@part
+\def\@part[#1]#2{%
+  \thispagestyle{empty}%
+  \BookOriginalPart[#1]{#2}%
+  \gdef\BookCurrentPart{\partname\ \thepart: #1}%
+}
+\pretocmd{\@spart}{\thispagestyle{empty}\gdef\BookCurrentPart{#1}}%
+  {}{\PackageError{book-template}{Could not configure unnumbered part headers}{}}
+\makeatother
