@@ -1,9 +1,8 @@
 \documentclass[10pt,letterpaper,oneside]{book}
 
-\usepackage[T1]{fontenc}
+\newif\ifHTMLBuild
+\input{packages}
 \input{layout/margins}
-\usepackage[noframe]{showframe}
-\usepackage[hidelinks]{hyperref}
 
 % Edit the book-specific details here; reuse the title-page layout unchanged.
 \input{title/metadata}
@@ -15,12 +14,6 @@
 \input{title/title}
 
 
-\input{contents/contents}
-
-\mainmatter
-\input{parts/part-01/part}
-
-\backmatter
-% bibliography
+\input{book-content}
 
 \end{document}

@@ -1,2 +1,7 @@
 /build/*
 !/build/book.pdf
+/.venv/
+/*.paux
+__pycache__/
+*.py[cod]
+/dist/

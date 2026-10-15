@@ -1,0 +1,17 @@
+% Run plasTeX from the repository root so all input paths resolve.
+\documentclass{book}
+\newif\ifHTMLBuild
+\HTMLBuildtrue
+\input{packages}
+\newcommand{\TitleAuthor}[2]{\textbf{#1}\\\emph{#2}\par}
+\input{title/metadata}
+\title{\BookTitle}
+\author{\BookAuthors}
+\date{\BookDate}
+
+\begin{document}
+\maketitle
+\BookSubtitle
+\frontmatter
+\input{book-content}
+\end{document}

@@ -1,0 +1,13 @@
+[project]
+name = "book-template"
+version = "0.1.0"
+description = "Build PDF and HTML editions of a LaTeX textbook"
+requires-python = ">=3.12"
+dependencies = ["plasTeX==3.1"]
+
+[project.scripts]
+book = "book_template.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.8,<0.9"]
+build-backend = "uv_build"
