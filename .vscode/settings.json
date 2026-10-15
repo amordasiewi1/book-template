@@ -1,5 +1,5 @@
 {
-  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.outDir": "%DIR%/../build",
   "latex-workshop.latex.recipe.default": "first",
   "latex-workshop.latex.recipes": [
     {
@@ -16,6 +16,7 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-pdf",
+        "-cd",
         "-outdir=%OUTDIR%",
         "%DOC%"
       ]

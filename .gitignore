@@ -2,6 +2,7 @@
 !/build/book.pdf
 /.venv/
 /*.paux
+/tex/*.paux
 __pycache__/
 *.py[cod]
 /dist/

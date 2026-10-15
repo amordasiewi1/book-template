@@ -11,7 +11,7 @@ import sys
 
 def project_root() -> Path:
     for candidate in (Path.cwd(), *Path.cwd().parents):
-        if (candidate / "book.tex").is_file() and (candidate / "pyproject.toml").is_file():
+        if (candidate / "tex/book.tex").is_file() and (candidate / "pyproject.toml").is_file():
             return candidate
     raise RuntimeError("Run this command from the textbook repository or a subfolder.")
 
@@ -27,16 +27,17 @@ def main() -> int:
 
     try:
         root = project_root()
+        tex_root = root / "tex"
         if args.command == "html":
             executable = Path(sys.executable).parent / "plastex"
             if sys.platform == "win32":
                 executable = executable.with_suffix(".exe")
             subprocess.run([
                 str(executable), "--renderer=HTML5", "--split-level=0",
-                "--dir=build/html", "--extra-css=html/book.css", "html/book.tex",
-            ], cwd=root, check=True)
+                f"--dir={root / 'build/html'}", "--extra-css=../html/book.css", "book-html.tex",
+            ], cwd=tex_root, check=True)
             # plasTeX copies extra CSS by basename but links using its input path.
-            css_target = root / "build/html/styles/html/book.css"
+            css_target = root / "build/html/html/book.css"
             css_target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(root / "html/book.css", css_target)
             print(f"HTML: {root / 'build/html/index.html'}")
@@ -46,8 +47,8 @@ def main() -> int:
                 raise RuntimeError("latexmk is missing. Install a LaTeX distribution first.")
             subprocess.run([
                 executable, "-pdf", "-interaction=nonstopmode", "-halt-on-error",
-                "-outdir=build", "book.tex",
-            ], cwd=root, check=True)
+                f"-outdir={root / 'build'}", "book.tex",
+            ], cwd=tex_root, check=True)
         else:
             directory = root / "build/html"
             if not (directory / "index.html").is_file():
