@@ -1,4 +1,4 @@
-% Shared packages with plasTeX implementations.
+% Shared content packages.
 \usepackage{amsmath}
 \usepackage{textcomp}
 \usepackage{float}
@@ -12,8 +12,7 @@
   % HTML-only packages go here.
 \else
   % PDF-only packages; layout configuration stays in layout/.
-  % These packages lack reliable plasTeX support. Their commands need
-  % HTML equivalents if used in shared chapter content.
+  % Keep the existing print package choices during this converter evaluation.
   \usepackage{anyfontsize}
   \usepackage{sectsty}
   \usepackage{mathtools}

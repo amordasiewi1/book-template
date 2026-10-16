@@ -3,7 +3,7 @@ name = "book-template"
 version = "0.1.0"
 description = "Build PDF and HTML editions of a LaTeX textbook"
 requires-python = ">=3.12"
-dependencies = ["plasTeX==3.1"]
+dependencies = []
 
 [project.scripts]
 book = "book_template.cli:main"
