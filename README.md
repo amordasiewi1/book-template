@@ -36,6 +36,14 @@ Outputs:
 - Experimental HTML: `build/html-make4ht/index.html`
 - HTML build intermediates: `build/make4ht/`
 
+The wrapper copies `tex/` into the HTML build directory before conversion,
+so intermediate files stay out of the source tree. This also works with
+older make4ht versions that lack the `-B` build-directory flag.
+
+On the Ubuntu TeX Live 2023 installation, make4ht reports that the optional
+`char-def` module is missing. Conversion succeeds; automatic section-ID
+cleanup is unavailable. Generated links should be checked after upgrades.
+
 Existing plasTeX output in `build/html/` is left alone. Run `uv sync` after
 switching branches to synchronize the Python environment.
 
