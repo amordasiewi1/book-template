@@ -1,0 +1,11 @@
+\cleardoublepage
+\markboth{}{Bibliography}
+\ifHTMLBuild\else
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\bibname}
+\fi
+\bibliographystyle{plain}
+% Include this placeholder even before the first citation is written.
+% Remove this line once you add real references and \cite{...} commands.
+\nocite{example-reference}
+\bibliography{bibliography/references}

@@ -19,6 +19,7 @@ def main() -> int:
         working = ROOT / "build/make4ht"
         shutil.copytree(ROOT / "tex", working, dirs_exist_ok=True)
         args = ["make4ht", "-c", str(ROOT / "html/book.cfg"), "-j", "index",
+                "-e", str(ROOT / "html/book.mk4"),
                 "-d", str(HTML),
                 "book-html.tex", "mathjax,2"]
     elif command == "pdf":

@@ -9,29 +9,29 @@
 \usepackage{url}
 
 \ifHTMLBuild
-  % HTML-only packages go here.
+    % HTML-only packages go here.
 \else
-  % PDF-only packages; layout configuration stays in layout/.
-  % Keep the existing print package choices during this converter evaluation.
-  \usepackage{anyfontsize}
-  \usepackage{sectsty}
-  \usepackage{mathtools}
-  \usepackage{leftidx}
-  \usepackage{gensymb}
-  \usepackage{multirow}
-  \usepackage{bm}
-  \usepackage{varwidth}
-  \usepackage{layout}
-  \usepackage{cancel}
-  \usepackage[T1]{fontenc}
-  \usepackage{geometry}
-  \usepackage[noframe]{showframe}
-  \usepackage{fancyhdr}
-  \usepackage{etoolbox}
+    % PDF-only packages; layout configuration stays in layout/.
+    % Keep the existing print package choices during this converter evaluation.
+    \usepackage{anyfontsize}
+    \usepackage{sectsty}
+    \usepackage{mathtools}
+    \usepackage{leftidx}
+    \usepackage{gensymb}
+    \usepackage{multirow}
+    \usepackage{bm}
+    \usepackage{varwidth}
+    \usepackage{layout}
+    \usepackage{cancel}
+    \usepackage[T1]{fontenc}
+    \usepackage{geometry}
+    \usepackage[noframe]{showframe}
+    \usepackage{fancyhdr}
+    \usepackage{etoolbox}
 \fi
 
 % Load hyperref after the other packages, for both editions.
 \usepackage[hidelinks]{hyperref}
 \ifHTMLBuild\else
-  \usepackage{bookmark}
+    \usepackage{bookmark}
 \fi

@@ -1,19 +1,24 @@
 \documentclass[11pt,letterpaper,oneside]{book}
 
 \newif\ifHTMLBuild
+
+% latex packages
 \input{packages}
+
+% margins and 
 \input{layout/margins}
 
-% Edit the book-specific details here; reuse the title-page layout unchanged.
+% title metadata
 \input{title/metadata}
+
+% header stuff
 \input{layout/headers}
+
 
 \begin{document}
 
 \frontmatter
 \input{title/title}
-
-
 \input{book-content}
 
 \end{document}

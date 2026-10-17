@@ -1,0 +1,5 @@
+-- Run BibTeX between LaTeX passes so references work in the HTML edition.
+Make:htlatex()
+Make:bibtex()
+Make:htlatex()
+Make:htlatex()
