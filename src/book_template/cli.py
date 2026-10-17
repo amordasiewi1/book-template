@@ -1,4 +1,4 @@
-"""Small wrappers around the book's command-line build tools."""
+"""CLI"""
 
 import argparse
 from pathlib import Path
